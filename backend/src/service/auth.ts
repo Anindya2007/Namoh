@@ -73,7 +73,7 @@ export const loginUser_service= async (
         throw new Error("login key not found");
     }
 
-    const token= sign({id:findUser.id},JWT_SECRET_KEY,{expiresIn:"1d"}); //Creating token for further authentication
+    const token= sign({id:findUser.id,role:findUser.role},JWT_SECRET_KEY,{expiresIn:"1d"}); //Creating token for further authentication
     const {passwordHash,...user}=findUser;
     return {token:token,data:user};
 

@@ -1,5 +1,6 @@
 import {Request,Response,NextFunction} from 'express';
 import {verify} from 'jsonwebtoken';
+import {UserRole} from '../../generated/prisma/enums'
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -27,6 +28,7 @@ export const verify_login= async (
 
     req.auth={
         id:verifiedUser.id,
+        role:UserRole.USER
     };
     next();
 }
