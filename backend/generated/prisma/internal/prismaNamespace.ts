@@ -771,7 +771,8 @@ export const FeedbackScalarFieldEnum = {
   feedbackId: 'feedbackId',
   productId: 'productId',
   userId: 'userId',
-  review: 'review'
+  review: 'review',
+  ratings: 'ratings'
 } as const
 
 export type FeedbackScalarFieldEnum = (typeof FeedbackScalarFieldEnum)[keyof typeof FeedbackScalarFieldEnum]

@@ -30,12 +30,14 @@ export type FeedbackAvgAggregateOutputType = {
   feedbackId: number | null
   productId: number | null
   userId: number | null
+  ratings: number | null
 }
 
 export type FeedbackSumAggregateOutputType = {
   feedbackId: number | null
   productId: number | null
   userId: number | null
+  ratings: number | null
 }
 
 export type FeedbackMinAggregateOutputType = {
@@ -43,6 +45,7 @@ export type FeedbackMinAggregateOutputType = {
   productId: number | null
   userId: number | null
   review: string | null
+  ratings: number | null
 }
 
 export type FeedbackMaxAggregateOutputType = {
@@ -50,6 +53,7 @@ export type FeedbackMaxAggregateOutputType = {
   productId: number | null
   userId: number | null
   review: string | null
+  ratings: number | null
 }
 
 export type FeedbackCountAggregateOutputType = {
@@ -57,6 +61,7 @@ export type FeedbackCountAggregateOutputType = {
   productId: number
   userId: number
   review: number
+  ratings: number
   _all: number
 }
 
@@ -65,12 +70,14 @@ export type FeedbackAvgAggregateInputType = {
   feedbackId?: true
   productId?: true
   userId?: true
+  ratings?: true
 }
 
 export type FeedbackSumAggregateInputType = {
   feedbackId?: true
   productId?: true
   userId?: true
+  ratings?: true
 }
 
 export type FeedbackMinAggregateInputType = {
@@ -78,6 +85,7 @@ export type FeedbackMinAggregateInputType = {
   productId?: true
   userId?: true
   review?: true
+  ratings?: true
 }
 
 export type FeedbackMaxAggregateInputType = {
@@ -85,6 +93,7 @@ export type FeedbackMaxAggregateInputType = {
   productId?: true
   userId?: true
   review?: true
+  ratings?: true
 }
 
 export type FeedbackCountAggregateInputType = {
@@ -92,6 +101,7 @@ export type FeedbackCountAggregateInputType = {
   productId?: true
   userId?: true
   review?: true
+  ratings?: true
   _all?: true
 }
 
@@ -186,6 +196,7 @@ export type FeedbackGroupByOutputType = {
   productId: number
   userId: number
   review: string
+  ratings: number
   _count: FeedbackCountAggregateOutputType | null
   _avg: FeedbackAvgAggregateOutputType | null
   _sum: FeedbackSumAggregateOutputType | null
@@ -216,6 +227,7 @@ export type feedbackWhereInput = {
   productId?: Prisma.IntFilter<"feedback"> | number
   userId?: Prisma.IntFilter<"feedback"> | number
   review?: Prisma.StringFilter<"feedback"> | string
+  ratings?: Prisma.IntFilter<"feedback"> | number
   User?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
   Product?: Prisma.XOR<Prisma.ProductScalarRelationFilter, Prisma.ProductWhereInput>
 }
@@ -225,6 +237,7 @@ export type feedbackOrderByWithRelationInput = {
   productId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   review?: Prisma.SortOrder
+  ratings?: Prisma.SortOrder
   User?: Prisma.userOrderByWithRelationInput
   Product?: Prisma.ProductOrderByWithRelationInput
 }
@@ -237,6 +250,7 @@ export type feedbackWhereUniqueInput = Prisma.AtLeast<{
   productId?: Prisma.IntFilter<"feedback"> | number
   userId?: Prisma.IntFilter<"feedback"> | number
   review?: Prisma.StringFilter<"feedback"> | string
+  ratings?: Prisma.IntFilter<"feedback"> | number
   User?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
   Product?: Prisma.XOR<Prisma.ProductScalarRelationFilter, Prisma.ProductWhereInput>
 }, "feedbackId">
@@ -246,6 +260,7 @@ export type feedbackOrderByWithAggregationInput = {
   productId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   review?: Prisma.SortOrder
+  ratings?: Prisma.SortOrder
   _count?: Prisma.feedbackCountOrderByAggregateInput
   _avg?: Prisma.feedbackAvgOrderByAggregateInput
   _max?: Prisma.feedbackMaxOrderByAggregateInput
@@ -261,10 +276,12 @@ export type feedbackScalarWhereWithAggregatesInput = {
   productId?: Prisma.IntWithAggregatesFilter<"feedback"> | number
   userId?: Prisma.IntWithAggregatesFilter<"feedback"> | number
   review?: Prisma.StringWithAggregatesFilter<"feedback"> | string
+  ratings?: Prisma.IntWithAggregatesFilter<"feedback"> | number
 }
 
 export type feedbackCreateInput = {
   review: string
+  ratings: number
   User: Prisma.userCreateNestedOneWithoutFeedbackInput
   Product: Prisma.ProductCreateNestedOneWithoutFeedbackInput
 }
@@ -274,10 +291,12 @@ export type feedbackUncheckedCreateInput = {
   productId: number
   userId: number
   review: string
+  ratings: number
 }
 
 export type feedbackUpdateInput = {
   review?: Prisma.StringFieldUpdateOperationsInput | string
+  ratings?: Prisma.IntFieldUpdateOperationsInput | number
   User?: Prisma.userUpdateOneRequiredWithoutFeedbackNestedInput
   Product?: Prisma.ProductUpdateOneRequiredWithoutFeedbackNestedInput
 }
@@ -287,6 +306,7 @@ export type feedbackUncheckedUpdateInput = {
   productId?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   review?: Prisma.StringFieldUpdateOperationsInput | string
+  ratings?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type feedbackCreateManyInput = {
@@ -294,10 +314,12 @@ export type feedbackCreateManyInput = {
   productId: number
   userId: number
   review: string
+  ratings: number
 }
 
 export type feedbackUpdateManyMutationInput = {
   review?: Prisma.StringFieldUpdateOperationsInput | string
+  ratings?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type feedbackUncheckedUpdateManyInput = {
@@ -305,6 +327,7 @@ export type feedbackUncheckedUpdateManyInput = {
   productId?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   review?: Prisma.StringFieldUpdateOperationsInput | string
+  ratings?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type FeedbackListRelationFilter = {
@@ -322,12 +345,14 @@ export type feedbackCountOrderByAggregateInput = {
   productId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   review?: Prisma.SortOrder
+  ratings?: Prisma.SortOrder
 }
 
 export type feedbackAvgOrderByAggregateInput = {
   feedbackId?: Prisma.SortOrder
   productId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  ratings?: Prisma.SortOrder
 }
 
 export type feedbackMaxOrderByAggregateInput = {
@@ -335,6 +360,7 @@ export type feedbackMaxOrderByAggregateInput = {
   productId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   review?: Prisma.SortOrder
+  ratings?: Prisma.SortOrder
 }
 
 export type feedbackMinOrderByAggregateInput = {
@@ -342,12 +368,14 @@ export type feedbackMinOrderByAggregateInput = {
   productId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   review?: Prisma.SortOrder
+  ratings?: Prisma.SortOrder
 }
 
 export type feedbackSumOrderByAggregateInput = {
   feedbackId?: Prisma.SortOrder
   productId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  ratings?: Prisma.SortOrder
 }
 
 export type feedbackCreateNestedManyWithoutUserInput = {
@@ -436,6 +464,7 @@ export type feedbackUncheckedUpdateManyWithoutProductNestedInput = {
 
 export type feedbackCreateWithoutUserInput = {
   review: string
+  ratings: number
   Product: Prisma.ProductCreateNestedOneWithoutFeedbackInput
 }
 
@@ -443,6 +472,7 @@ export type feedbackUncheckedCreateWithoutUserInput = {
   feedbackId?: number
   productId: number
   review: string
+  ratings: number
 }
 
 export type feedbackCreateOrConnectWithoutUserInput = {
@@ -479,10 +509,12 @@ export type feedbackScalarWhereInput = {
   productId?: Prisma.IntFilter<"feedback"> | number
   userId?: Prisma.IntFilter<"feedback"> | number
   review?: Prisma.StringFilter<"feedback"> | string
+  ratings?: Prisma.IntFilter<"feedback"> | number
 }
 
 export type feedbackCreateWithoutProductInput = {
   review: string
+  ratings: number
   User: Prisma.userCreateNestedOneWithoutFeedbackInput
 }
 
@@ -490,6 +522,7 @@ export type feedbackUncheckedCreateWithoutProductInput = {
   feedbackId?: number
   userId: number
   review: string
+  ratings: number
 }
 
 export type feedbackCreateOrConnectWithoutProductInput = {
@@ -522,10 +555,12 @@ export type feedbackCreateManyUserInput = {
   feedbackId?: number
   productId: number
   review: string
+  ratings: number
 }
 
 export type feedbackUpdateWithoutUserInput = {
   review?: Prisma.StringFieldUpdateOperationsInput | string
+  ratings?: Prisma.IntFieldUpdateOperationsInput | number
   Product?: Prisma.ProductUpdateOneRequiredWithoutFeedbackNestedInput
 }
 
@@ -533,22 +568,26 @@ export type feedbackUncheckedUpdateWithoutUserInput = {
   feedbackId?: Prisma.IntFieldUpdateOperationsInput | number
   productId?: Prisma.IntFieldUpdateOperationsInput | number
   review?: Prisma.StringFieldUpdateOperationsInput | string
+  ratings?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type feedbackUncheckedUpdateManyWithoutUserInput = {
   feedbackId?: Prisma.IntFieldUpdateOperationsInput | number
   productId?: Prisma.IntFieldUpdateOperationsInput | number
   review?: Prisma.StringFieldUpdateOperationsInput | string
+  ratings?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type feedbackCreateManyProductInput = {
   feedbackId?: number
   userId: number
   review: string
+  ratings: number
 }
 
 export type feedbackUpdateWithoutProductInput = {
   review?: Prisma.StringFieldUpdateOperationsInput | string
+  ratings?: Prisma.IntFieldUpdateOperationsInput | number
   User?: Prisma.userUpdateOneRequiredWithoutFeedbackNestedInput
 }
 
@@ -556,12 +595,14 @@ export type feedbackUncheckedUpdateWithoutProductInput = {
   feedbackId?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   review?: Prisma.StringFieldUpdateOperationsInput | string
+  ratings?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type feedbackUncheckedUpdateManyWithoutProductInput = {
   feedbackId?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   review?: Prisma.StringFieldUpdateOperationsInput | string
+  ratings?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -571,6 +612,7 @@ export type feedbackSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   productId?: boolean
   userId?: boolean
   review?: boolean
+  ratings?: boolean
   User?: boolean | Prisma.userDefaultArgs<ExtArgs>
   Product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["feedback"]>
@@ -580,6 +622,7 @@ export type feedbackSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   productId?: boolean
   userId?: boolean
   review?: boolean
+  ratings?: boolean
   User?: boolean | Prisma.userDefaultArgs<ExtArgs>
   Product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["feedback"]>
@@ -589,6 +632,7 @@ export type feedbackSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   productId?: boolean
   userId?: boolean
   review?: boolean
+  ratings?: boolean
   User?: boolean | Prisma.userDefaultArgs<ExtArgs>
   Product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["feedback"]>
@@ -598,9 +642,10 @@ export type feedbackSelectScalar = {
   productId?: boolean
   userId?: boolean
   review?: boolean
+  ratings?: boolean
 }
 
-export type feedbackOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"feedbackId" | "productId" | "userId" | "review", ExtArgs["result"]["feedback"]>
+export type feedbackOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"feedbackId" | "productId" | "userId" | "review" | "ratings", ExtArgs["result"]["feedback"]>
 export type feedbackInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   User?: boolean | Prisma.userDefaultArgs<ExtArgs>
   Product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
@@ -625,6 +670,7 @@ export type $feedbackPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     productId: number
     userId: number
     review: string
+    ratings: number
   }, ExtArgs["result"]["feedback"]>
   composites: {}
 }
@@ -1054,6 +1100,7 @@ export interface feedbackFieldRefs {
   readonly productId: Prisma.FieldRef<"feedback", 'Int'>
   readonly userId: Prisma.FieldRef<"feedback", 'Int'>
   readonly review: Prisma.FieldRef<"feedback", 'String'>
+  readonly ratings: Prisma.FieldRef<"feedback", 'Int'>
 }
     
 

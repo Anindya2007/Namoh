@@ -233,7 +233,7 @@ export type ProductGroupByOutputType = {
   description: string
   price: runtime.Decimal
   category: $Enums.ProductCategory
-  imageUrl: string
+  imageUrl: string | null
   stock: number
   editionSize: number | null
   isAvailable: boolean
@@ -270,7 +270,7 @@ export type ProductWhereInput = {
   description?: Prisma.StringFilter<"Product"> | string
   price?: Prisma.DecimalFilter<"Product"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: Prisma.EnumProductCategoryFilter<"Product"> | $Enums.ProductCategory
-  imageUrl?: Prisma.StringFilter<"Product"> | string
+  imageUrl?: Prisma.StringNullableFilter<"Product"> | string | null
   stock?: Prisma.IntFilter<"Product"> | number
   editionSize?: Prisma.IntNullableFilter<"Product"> | number | null
   isAvailable?: Prisma.BoolFilter<"Product"> | boolean
@@ -285,7 +285,7 @@ export type ProductOrderByWithRelationInput = {
   description?: Prisma.SortOrder
   price?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  imageUrl?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   stock?: Prisma.SortOrder
   editionSize?: Prisma.SortOrderInput | Prisma.SortOrder
   isAvailable?: Prisma.SortOrder
@@ -303,7 +303,7 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
   description?: Prisma.StringFilter<"Product"> | string
   price?: Prisma.DecimalFilter<"Product"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: Prisma.EnumProductCategoryFilter<"Product"> | $Enums.ProductCategory
-  imageUrl?: Prisma.StringFilter<"Product"> | string
+  imageUrl?: Prisma.StringNullableFilter<"Product"> | string | null
   stock?: Prisma.IntFilter<"Product"> | number
   editionSize?: Prisma.IntNullableFilter<"Product"> | number | null
   isAvailable?: Prisma.BoolFilter<"Product"> | boolean
@@ -318,7 +318,7 @@ export type ProductOrderByWithAggregationInput = {
   description?: Prisma.SortOrder
   price?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  imageUrl?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   stock?: Prisma.SortOrder
   editionSize?: Prisma.SortOrderInput | Prisma.SortOrder
   isAvailable?: Prisma.SortOrder
@@ -340,7 +340,7 @@ export type ProductScalarWhereWithAggregatesInput = {
   description?: Prisma.StringWithAggregatesFilter<"Product"> | string
   price?: Prisma.DecimalWithAggregatesFilter<"Product"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: Prisma.EnumProductCategoryWithAggregatesFilter<"Product"> | $Enums.ProductCategory
-  imageUrl?: Prisma.StringWithAggregatesFilter<"Product"> | string
+  imageUrl?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   stock?: Prisma.IntWithAggregatesFilter<"Product"> | number
   editionSize?: Prisma.IntNullableWithAggregatesFilter<"Product"> | number | null
   isAvailable?: Prisma.BoolWithAggregatesFilter<"Product"> | boolean
@@ -353,7 +353,7 @@ export type ProductCreateInput = {
   description: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: $Enums.ProductCategory
-  imageUrl: string
+  imageUrl?: string | null
   stock?: number
   editionSize?: number | null
   isAvailable?: boolean
@@ -368,7 +368,7 @@ export type ProductUncheckedCreateInput = {
   description: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: $Enums.ProductCategory
-  imageUrl: string
+  imageUrl?: string | null
   stock?: number
   editionSize?: number | null
   isAvailable?: boolean
@@ -382,7 +382,7 @@ export type ProductUpdateInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: Prisma.EnumProductCategoryFieldUpdateOperationsInput | $Enums.ProductCategory
-  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   editionSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -397,7 +397,7 @@ export type ProductUncheckedUpdateInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: Prisma.EnumProductCategoryFieldUpdateOperationsInput | $Enums.ProductCategory
-  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   editionSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -412,7 +412,7 @@ export type ProductCreateManyInput = {
   description: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: $Enums.ProductCategory
-  imageUrl: string
+  imageUrl?: string | null
   stock?: number
   editionSize?: number | null
   isAvailable?: boolean
@@ -425,7 +425,7 @@ export type ProductUpdateManyMutationInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: Prisma.EnumProductCategoryFieldUpdateOperationsInput | $Enums.ProductCategory
-  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   editionSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -439,7 +439,7 @@ export type ProductUncheckedUpdateManyInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: Prisma.EnumProductCategoryFieldUpdateOperationsInput | $Enums.ProductCategory
-  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   editionSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -534,6 +534,10 @@ export type EnumProductCategoryFieldUpdateOperationsInput = {
   set?: $Enums.ProductCategory
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type NullableIntFieldUpdateOperationsInput = {
   set?: number | null
   increment?: number
@@ -551,7 +555,7 @@ export type ProductCreateWithoutFeedbackInput = {
   description: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: $Enums.ProductCategory
-  imageUrl: string
+  imageUrl?: string | null
   stock?: number
   editionSize?: number | null
   isAvailable?: boolean
@@ -565,7 +569,7 @@ export type ProductUncheckedCreateWithoutFeedbackInput = {
   description: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: $Enums.ProductCategory
-  imageUrl: string
+  imageUrl?: string | null
   stock?: number
   editionSize?: number | null
   isAvailable?: boolean
@@ -594,7 +598,7 @@ export type ProductUpdateWithoutFeedbackInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: Prisma.EnumProductCategoryFieldUpdateOperationsInput | $Enums.ProductCategory
-  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   editionSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -608,7 +612,7 @@ export type ProductUncheckedUpdateWithoutFeedbackInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   category?: Prisma.EnumProductCategoryFieldUpdateOperationsInput | $Enums.ProductCategory
-  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   editionSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -724,7 +728,7 @@ export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     description: string
     price: runtime.Decimal
     category: $Enums.ProductCategory
-    imageUrl: string
+    imageUrl: string | null
     stock: number
     editionSize: number | null
     isAvailable: boolean

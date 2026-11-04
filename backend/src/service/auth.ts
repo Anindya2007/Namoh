@@ -18,7 +18,7 @@ try{
         }
     });
     if (user){
-        throw new Error('User already esists!!') ;
+        throw new Error('User already exists!!') ;
     };
 
     const salt= await genSalt(10);
